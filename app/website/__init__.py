@@ -6,11 +6,11 @@ from postgre import engine, Session
 import os, socket
 
 username = 'aymn' #os.environ.get('POSTGRES_USER')
-pwd = '1234' #os.environ.get('POSTGRES_PASSWORD')
+pwd = 'aymn' #os.environ.get('POSTGRES_PASSWORD')
 database = 'noteapp' #os.environ.get("POSTGRE_DB")
 port_id = 5432
 
-postgres_host = 'localhost'
+postgres_host = 'db'
 ip_address = socket.gethostbyname(postgres_host)
 
 db = SQLAlchemy()

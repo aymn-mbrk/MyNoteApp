@@ -15,18 +15,18 @@ services:
 
 
   db:
-    image: "postgres"
+    image: "postgres:15"
     restart: always
       #env_file:
       #- ./.env
     environment:
-      POSTGRES_USER: hime
-      POSTGRES_PASSWORD: hime
-      POSTGRES_DB: note
+      POSTGRES_USER: aymn
+      POSTGRES_PASSWORD: aymn
+      POSTGRES_DB: noteapp
     ports:
       - "5432:5432"
     volumes: 
-      - ./db:/var/lib/postgresql/data #Le / après le point
+      - MyNoteApp_db:/var/lib/postgresql/data #Le / après le point
     networks:
         webapp:
           ipv4_address: 172.18.0.3
@@ -41,5 +41,5 @@ networks:
             gateway: "172.18.0.1"
 
 volumes:
-  db:
-    external: true
+  MyNoteApp_db:
+    

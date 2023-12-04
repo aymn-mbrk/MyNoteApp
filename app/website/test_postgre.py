@@ -2,11 +2,11 @@ import os
 import socket
 import psycopg2
 
-postgres_host = "localhost"
+postgres_host = "db"
 ip_address = socket.gethostbyname(postgres_host)
 
 username = 'aymn'  # Replace with your PostgreSQL username
-pwd = '1234'      # Replace with your PostgreSQL password
+pwd = 'aymn'      # Replace with your PostgreSQL password
 database = 'noteapp'  # Replace with your PostgreSQL database name
 port_id = 5432
 
