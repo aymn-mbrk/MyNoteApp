@@ -7,7 +7,9 @@ RUN apt clean
 RUN apt-get update && apt install apache2 python3 pip libpq-dev apache2-dev -y \
         && pip3 install --upgrade pip
 
-COPY --chmod=775 ./app /var/www/app
+COPY ./app /var/www/app
+RUN chmod -R 775 /var/www/app
+
 RUN pip install -r /var/www/app/requirements.txt
 RUN mv /var/www/app/notapp-apache.conf /etc/apache2/sites-available/
 RUN public_ip=$(curl -s ifconfig.me) && \
