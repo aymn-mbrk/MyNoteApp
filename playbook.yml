@@ -1,0 +1,20 @@
+---
+- name: Install Docker Compose
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose
+        state: present
+
+    - name: Check if Docker Compose is installed
+      command: docker-compose --version
+      register: compose_version_output
+      changed_when: false
+
+    - name: Print Docker Compose version
+      debug:
+        var: compose_version_output.stdout_lines
+
