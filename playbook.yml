@@ -2,12 +2,17 @@
 - name: Install Docker Compose
   hosts: localhost
   become: true
-tasks:
-    - name: Install Ansible
-      apt:
-        name: ansible
-        state: present
+
   tasks:
+    - name: Check if ansible is installed
+      command: ansible --version
+      register: ansible_version_output
+      changed_when: false
+
+    - name: Print ansible version
+      debug:
+        var: ansible_version_output.stdout_lines
+
     - name: Install Docker Compose
       apt:
         name: docker-compose
